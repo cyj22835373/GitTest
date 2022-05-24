@@ -1,0 +1,123 @@
+# xujing
+# index page
+#: import C kivy.utils.get_color_from_hex
+<ImagePage>:
+    orientation:'vertical'
+	BoxLayout:
+	    orientation: 'horizontal'
+		size_hint: (1,0.05)
+		Button:
+		    text: "[b]\u6587\u4ef6[/b]"
+			font_name: './static/DroidSansFallback.ttf'
+			markup: True
+			on_press:root.selectfolder()
+		Button:
+		    text: "[b]\u8bbe\u7f6e[/b]"
+			font_name: './static/DroidSansFallback.ttf'
+			markup: True
+			on_press:root.selectfolder()
+		Button:
+		    text: "[b]\u5bc6\u94a5[/b]"
+			font_name: './static/DroidSansFallback.ttf'
+			markup: True
+			on_press:root.selectfolder()
+		Button:
+		    text: "[b]\u5e2e\u52a9[/b]"
+			font_name: './static/DroidSansFallback.ttf'
+			markup: True
+			on_press:root.selectfolder()
+	BoxLayout:
+	    orientation: 'horizontal'
+		size_hint: (1,.9)
+		Image: 
+			id:img_det
+			source:"./static/example.jpg"
+			size_hint:(0.5,1.0)
+			size_height_y:None
+			width:100
+			allow_stretch:True
+		Image: 
+			id:img_det1
+			source:"./static/example.jpg"
+			size_hint:(0.5,1.0)
+			size_height_y:None
+			width:100
+			allow_stretch:True
+    BoxLayout:
+	    orientation: 'horizontal'
+		size_hint: (1,.1)
+		spacing: 25 #jiang ge
+		padding: 10 #to the edge
+		
+		Button:
+		    text: "[b]\u5de6\u8fb9\u66f4\u597d[/b]"
+			#text: "[b]\u8fd4\u56de\u4e3b\u9875[/b]"
+			font_name: './static/DroidSansFallback.ttf'
+			markup: True
+			on_press:root.back_index()
+		Button:
+			#text: "[b]\u52a0\u8f7d\u56fe\u50cf[/b]" 
+			text: "[b]\u4e00\u6837[/b]" 
+			font_name: './static/DroidSansFallback.ttf' 
+			markup: True 
+			on_release: root.show_load()
+		Button:
+		    #text: "[b]\u63a5\u5165\u89c6\u9891[/b]" 
+			text: "[b]\u53f3\u8fb9\u66f4\u597d[/b]" 
+			font_name: './static/DroidSansFallback.ttf' 
+			markup: True 
+			on_press:root.back_video()
+<LoadDialog>:
+	BoxLayout:
+		size: root.size
+		pos: root.pos
+		orientation: "vertical"
+		FileChooserIconView:
+			id: filechooser
+			rootpath: root.cwdir
+			filters: ['*.jpg',"*.png","*.bmp","*.jpeg"]
+			on_selection: text_input.text = self.selection and self.selection[0] or ''
+		TextInput:
+			id: text_input
+			size_hint_y: .1
+			multiline: False
+		BoxLayout:
+			size_hint_y: .1
+			spacing: 30
+			Button:
+				text: "[b]\u52a0\u8f7d[/b]"
+				on_release: root.load(filechooser.path,text_input.text)
+				markup: True
+				font_name: './static/DroidSansFallback.ttf'
+			Button:
+				text: "[b]\u53d6\u6d88[/b]"
+				on_release: root.cancel()
+				markup: True
+				font_name: './static/DroidSansFallback.ttf'
+<LoadFolder>:
+	BoxLayout:
+		size: root.size
+		pos: root.pos
+		orientation: "vertical"
+		FileChooserListView:
+			id: filechooser
+			rootpath: root.cwdir
+			on_selection: text_input.text = self.selection and self.selection[0] or ''
+		TextInput:
+			id: text_input
+			size_hint_y: .1
+			multiline: False
+		BoxLayout:
+			size_hint_y: .1
+			spacing: 30
+			Button:
+				text: "[b]\u52a0\u8f7d[/b]"
+				on_release: root.load(filechooser.path,text_input.text)
+				markup: True
+				font_name: './static/DroidSansFallback.ttf'
+			Button:
+				text: "[b]\u53d6\u6d88[/b]"
+				on_release: root.cancel()
+				markup: True
+				font_name: './static/DroidSansFallback.ttf'
+				
