@@ -15,7 +15,7 @@
 		    text: "[b]\u8bbe\u7f6e[/b]"
 			font_name: './static/DroidSansFallback.ttf'
 			markup: True
-			on_press:root.selectfolder()
+			on_press:root.show_load()
 		Button:
 		    text: "[b]\u5bc6\u94a5[/b]"
 			font_name: './static/DroidSansFallback.ttf'
@@ -31,14 +31,14 @@
 		size_hint: (1,.9)
 		Image: 
 			id:img_det
-			source:"./static/example.jpg"
+			source:"./static/mouton.jpg"
 			size_hint:(0.5,1.0)
 			size_height_y:None
 			width:100
 			allow_stretch:True
 		Image: 
 			id:img_det1
-			source:"./static/example.jpg"
+			source:"./static/mouton.jpg"
 			size_hint:(0.5,1.0)
 			size_height_y:None
 			width:100
