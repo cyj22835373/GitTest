@@ -1,0 +1,7 @@
+('D:\\software\\anaconda\\envs\\py3.7-gpu\\share\\glew\\bin',
+ None,
+ [],
+ 'DATA',
+ [('glew32.dll',
+   'D:\\software\\anaconda\\envs\\py3.7-gpu\\share\\glew\\bin\\glew32.dll',
+   'DATA')])

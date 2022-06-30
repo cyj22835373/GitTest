@@ -1,0 +1,166 @@
+# xujing
+# index page
+#: import C kivy.utils.get_color_from_hex
+<ImagePage>:
+    orientation:'vertical'
+	BoxLayout:
+	    orientation: 'horizontal'
+		size_hint: (1,0.05)
+		Button:
+		    text: "[b]\u6587\u4ef6[/b]" #文件
+			font_name: './static/DroidSansFallback.ttf'
+			markup: True
+			on_press:root.selectfolder()
+		Button:
+		    text: "[b]\u8bbe\u7f6e[/b]" #设置
+			font_name: './static/DroidSansFallback.ttf'
+			markup: True
+			on_press:root.show_load()
+		Button:
+		    text: "[b]\u5bc6\u94a5[/b]" #密钥
+			font_name: './static/DroidSansFallback.ttf'
+			markup: True
+			on_press:root.selectfolder()
+        Button:
+		    text: "[b]\u7528\u6237[/b]" #用户
+			font_name: './static/DroidSansFallback.ttf'
+			markup: True
+			on_press:root.EnterObserverName()    
+		Button:
+		    text: "[b]\u5e2e\u52a9[/b]" #帮助
+			font_name: './static/DroidSansFallback.ttf'
+			markup: True
+			on_press:root.selectfolder()
+
+	BoxLayout:
+	    orientation: 'horizontal'
+		size_hint: (1,.9)
+		Image: 
+			id:img_det
+			source:"./static/mouton.jpg"
+			size_hint:(0.5,1.0)
+			size_height_y:None
+			width:100
+			allow_stretch:True
+		Image: 
+			id:img_det1
+			source:"./static/mouton.jpg"
+			size_hint:(0.5,1.0)
+			size_height_y:None
+			width:100
+			allow_stretch:True
+    BoxLayout:
+	    orientation: 'horizontal'
+		size_hint: (1.0,.1)
+		spacing: 25 #jiang ge
+		padding: 10 #to the edge
+		
+		Button:
+		    text: "[b]\u5de6\u8fb9\u66f4\u597d[/b]" #左边更好
+			#text: "[b]\u8fd4\u56de\u4e3b\u9875[/b]"
+			font_name: './static/DroidSansFallback.ttf'
+			markup: True
+			on_press:root.SelectWhichOne(0)
+		Button:
+			#text: "[b]\u52a0\u8f7d\u56fe\u50cf[/b]" #加载图像
+			text: "[b]\u5206\u6790[/b]"              #分析
+			font_name: './static/DroidSansFallback.ttf' 
+			markup: True 
+			on_release: root.show_load()
+		Button:
+			text: "[b]\u53f3\u8fb9\u66f4\u597d[/b]" #右边更好
+			font_name: './static/DroidSansFallback.ttf' 
+			markup: True 
+			on_press:root.SelectWhichOne(1)
+	BoxLayout:
+	    orientation: 'horizontal'
+		size_hint: (1.0,.1)
+		spacing: 25 #jiang ge
+		padding: 10 #to the edge		
+		
+		Button:
+			text: "[b]\u4e0a\u4e00\u5f20[/b]" #上一张
+			font_name: './static/DroidSansFallback.ttf' 
+			markup: True 
+			on_press:root.show_prePairImgs()
+		Button:
+			text: "[b]\u4e0b\u4e00\u5f20[/b]" #下一张
+			font_name: './static/DroidSansFallback.ttf' 
+			markup: True 
+			on_press:root.show_nextPairImgs()
+<LoadDialog>:
+	BoxLayout:
+		size: root.size
+		pos: root.pos
+		orientation: "vertical"
+		FileChooserIconView:
+			id: filechooser
+			rootpath: root.cwdir
+			filters: ['*.jpg',"*.png","*.bmp","*.jpeg"]
+			on_selection: text_input.text = self.selection and self.selection[0] or ''
+		TextInput:
+			id: text_input
+			size_hint_y: .1
+			multiline: False
+		BoxLayout:
+			size_hint_y: .1
+			spacing: 30
+			Button:
+				text: "[b]\u52a0\u8f7d[/b]"
+				on_release: root.load(filechooser.path,text_input.text)
+				markup: True
+				font_name: './static/DroidSansFallback.ttf'
+			Button:
+				text: "[b]\u53d6\u6d88[/b]"
+				on_release: root.cancel()
+				markup: True
+				font_name: './static/DroidSansFallback.ttf'
+<LoadFolder>:
+	BoxLayout:
+		size: root.size
+		pos: root.pos
+		orientation: "vertical"
+		FileChooserListView:
+			id: filechooser
+			rootpath: root.cwdir
+			on_selection: text_input.text = self.selection and self.selection[0] or ''
+		TextInput:
+			id: text_input
+			size_hint_y: .1
+			multiline: False
+		BoxLayout:
+			size_hint_y: .1
+			spacing: 30
+			Button:
+				text: "[b]\u52a0\u8f7d[/b]"
+				on_release: root.load(filechooser.path,text_input.text)
+				markup: True
+				font_name: './static/DroidSansFallback.ttf'
+			Button:
+				text: "[b]\u53d6\u6d88[/b]"
+				on_release: root.cancel()
+				markup: True
+				font_name: './static/DroidSansFallback.ttf'
+<EnterObserverName>:
+	BoxLayout:
+		size: root.size
+		pos: root.pos
+		orientation: "vertical"
+		
+		TextInput:
+			id: text_input
+			size_hint_y: .2
+			multiline: False
+		Button:
+            size_hint_y:.2
+            text: "[b]\u786e\u5b9a[/b]" #确定
+            on_release: root.enter(text_input.text)
+            markup: True
+            font_name: './static/DroidSansFallback.ttf'
+        Button:
+            size_hint_y:.2
+            text: "[b]\u53d6\u6d88[/b]" #取消
+            on_release: root.cancel()
+            markup: True
+            font_name: './static/DroidSansFallback.ttf'
+				

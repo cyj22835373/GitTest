@@ -29,7 +29,25 @@
 		#	font_size: 18 #18
 		#	pos_hint: {"center_x":0.45,"y":0.35} 
 		#	markup: True
+		
+		
+	Label:
+        id: 'start_label' 
+		text: '[ref="click"][b]Click To Start[/b][/ref]' 
+        color: C('#FFFF00')
+        font_name: './static/Droid Sans Fallback.ttf' 
+		font_size: 36 # 24
+		pos_hint: {"center_x":0.5,"y":-0.07} 
+		markup: True
+		on_ref_press: root.page_go()
 
+		#Label:
+		#	text: '[b]v1.0.0[/b]' 
+		#	#color: C('#FFFF00')
+		#	font_name: './static/Droid Sans Fallback.ttf' 
+		#	font_size: 18 #18
+		#	pos_hint: {"center_x":0.45,"y":0.35} 
+		#	markup: True
 	Label:
 		text: '[b]\u5f00\u53d1\u8005\uff1a\u9648\u4e00\u541b[/b]' 
 		#color: C('#FFFF00')

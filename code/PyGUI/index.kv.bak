@@ -1,0 +1,58 @@
+# xujing
+# index page
+#: import C kivy.utils.get_color_from_hex
+<IndexPage>:
+
+    canvas.before: 
+	    Color:
+            rgba: [1,1,1,1]
+        Rectangle:
+            pos: self.pos 
+			size: self.size
+            source: './static/index.png'
+
+
+    Label:
+        id: 'title_label' 
+		text: '[ref="click"][b]\u56fe\u50cf\u8d28\u91cf\u8bc4\u6d4b\u5de5\u5177[/b][/ref]' 
+        #color: C('#FFFF00')
+        font_name: './static/Droid Sans Fallback.ttf' 
+		font_size: 40 # 24
+		pos_hint: {"center_x":0.5,"y":0.07} 
+		markup: True
+		on_ref_press: root.page_go()
+
+		#Label:
+		#	text: '[b]v1.0.0[/b]' 
+		#	#color: C('#FFFF00')
+		#	font_name: './static/Droid Sans Fallback.ttf' 
+		#	font_size: 18 #18
+		#	pos_hint: {"center_x":0.45,"y":0.35} 
+		#	markup: True
+		
+		
+	Label:
+        id: 'start_label' 
+		text: '[ref="click"][b]Click To Start[/b][/ref]' 
+        color: C('#FFFF00')
+        font_name: './static/Droid Sans Fallback.ttf' 
+		font_size: 40 # 24
+		pos_hint: {"center_x":0.5,"y":-0.07} 
+		markup: True
+		on_ref_press: root.page_go()
+
+		#Label:
+		#	text: '[b]v1.0.0[/b]' 
+		#	#color: C('#FFFF00')
+		#	font_name: './static/Droid Sans Fallback.ttf' 
+		#	font_size: 18 #18
+		#	pos_hint: {"center_x":0.45,"y":0.35} 
+		#	markup: True
+	Label:
+		text: '[b]\u5f00\u53d1\u8005\uff1a\u9648\u4e00\u541b[/b]' 
+		#color: C('#FFFF00')
+		font_name: './static/Droid Sans Fallback.ttf' 
+		font_size: 18 #18
+		pos_hint: {"center_x":0.5,"y":-0.3}
+		#pos:(0.05,0.9)
+		markup: True
